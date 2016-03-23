@@ -5,3 +5,39 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+restaurants_attributes = [
+	{
+		name:         Faker::Company.name,
+		address:      Faker::Address.street_name,
+		phone_number: Faker::PhoneNumber.phone_number,
+		category:     ["chinese", "italian", "japanese", "french", "belgian"].sample,
+		},
+	{
+		name:         Faker::Company.name,
+		address:      Faker::Address.street_name,
+		phone_number: Faker::PhoneNumber.phone_number,
+		category:     ["chinese", "italian", "japanese", "french", "belgian"].sample,
+		},
+	{
+		name:         Faker::Company.name,
+		address:      Faker::Address.street_name,
+		phone_number: Faker::PhoneNumber.phone_number,
+		category:     ["chinese", "italian", "japanese", "french", "belgian"].sample,
+		},
+	{
+		name:         Faker::Company.name,
+		address:      Faker::Address.street_name,
+		phone_number: Faker::PhoneNumber.phone_number,
+		category:     ["chinese", "italian", "japanese", "french", "belgian"].sample,
+		},
+	{
+		name:         Faker::Company.name,
+		address:      Faker::Address.street_name,
+		phone_number: Faker::PhoneNumber.phone_number,
+		category:     ["chinese", "italian", "japanese", "french", "belgian"].sample,
+		},
+	]
+	restaurants_attributes.each { |params| Restaurant.create!(params) }
