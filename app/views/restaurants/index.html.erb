@@ -2,17 +2,21 @@
 Restaurants
 <% end %>
 
-<h1>Restaurants</h1>
+<div class="banner">
+	<div class="banner-content">
+		<div class="padding">
 
-<%= link_to 'New restaurant', new_restaurant_path %>
-<br><br>
+			<h1>Restaurants</h1>
+			<br>
 
-<ul>
-	<% @restaurants.each do |restaurant| %>
-	<li><%= "name: " %> <%=link_to restaurant.name, restaurant_path(restaurant) %> <br>
-	</li>
-	<br>
-	<%end%>
+			<ul>
+				<% @restaurants.each do |restaurant| %>
+				<li><%=link_to restaurant.name, restaurant_path(restaurant) %> <br>
+				</li>
+				<br>
+				<%end%>
 
-</ul>
-
+			</ul>
+		</div>
+	</div>
+</div>

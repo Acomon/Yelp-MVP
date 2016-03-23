@@ -1,16 +1,30 @@
-<h1> New restaurants</h1>
+<div class="banner">
+	<div class="banner-content">
+		<div class="padding">
 
-<%= form_for(@restaurant) do |t| %>
-<%= t.label :name %>
-<%= t.text_field :name %>
+			<h1> New restaurants</h1>
 
-<%= t.label :address %>
-<%= t.text_field :address %>
+			<%= simple_form_for @restaurant do |t| %>
 
-<%= t.label :category %>
-<%= t.text_field :category %>
-<%= "chinese, italian, japanese, french, belgian" %>
-<br>
+			<% if @restaurant.errors.any? %>
+			<div id="error_explanation">
+				<ul>
+					<% @restaurant.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
 
-<%= t.submit %>
-<% end %>
+			<%= t.input :name, placeholder: "Anthony" %>
+
+			<%= t.input :address, placeholder: "belgian Street" %>
+
+			<%= t.input :category, placeholder: "category", :collection => ["chinese", "italian", "japanese", "french", "belgian"] %>
+			<br>
+
+			<%= t.button :submit, label: "Add a new restaurant", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
