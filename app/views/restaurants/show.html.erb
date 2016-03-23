@@ -1,6 +1,21 @@
+<% content_for(:title) do %>
+<%= @restaurant.name %>
+<% end %>
+
 <h1><%= @restaurant.name  %></h1>
 <p><%= @restaurant.address  %></p>
 <p><%= @restaurant.category  %></p>
+<ul>
+	<% @restaurant.reviews.all.each do |review| %>
+	<li><%= review.content  %>
+		<%= " - rating: [" %> 
+		<%= review.rating  %> 
+		<%= "]" %> 
+	</li>
+	<br>
+	<%end%>
+
+</ul>
 
 <p> <%= link_to 'New review', new_restaurant_review_path(@restaurant) %></p>
 

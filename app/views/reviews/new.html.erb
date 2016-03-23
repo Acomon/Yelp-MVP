@@ -1,11 +1,10 @@
 <h1>New reviews</h1>
 
-<%= form_for(@review) do |t| %>
-<%= t.label :content %>
-<%= t.text_field :content %>
+<%= simple_form_for [@restaurant, @review] do |f| %>
 
-<%= t.label :rating %>
-<%= t.text_field :rating %>
+<%= f.input :content, placeholder: "review" %>
 
-<%= t.submit %>
+<%= f.input :rating, placeholder: "0 - 5" %>
+
+<%= f.button :submit, label: "Add a new review" %>
 <% end %>
