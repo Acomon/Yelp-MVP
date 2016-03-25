@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160323064214) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -30,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160323064214) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
 
+  add_foreign_key "reviews", "restaurants"
 end
